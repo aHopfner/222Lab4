@@ -37,7 +37,6 @@ public class LibrarianController {
 	}
 	public Member getMember(Library lib, String s) {
 		return lib.getMember(s);
-	
 	}
 	public void printMembers(Library lib) {
 		lib.printMembers();
@@ -47,5 +46,8 @@ public class LibrarianController {
 	}
 	public Book getBook(Library lib, String s) {
 		return lib.getBook(s);
+	}
+	public void removeBook(Library lib, Book b) {
+		lib.removeBook(b);
 	}
 }

@@ -28,6 +28,9 @@ public class Library {
         //TODO: Handle cases where a book with the same title is already in the system
         //Book.available() maybe? keep track of how many of the same books are available
     }
+    public void removeBook(Book b) {
+    	catalog.remove(b);
+    }
     
     public void removeMember(Member member) {
     	
