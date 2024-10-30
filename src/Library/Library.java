@@ -28,6 +28,18 @@ public class Library {
         //TODO: Handle cases where a book with the same title is already in the system
         //Book.available() maybe? keep track of how many of the same books are available
     }
+    
+    public void removeMember(Member member) {
+    	
+    	for(Book b : member.borrowedBooks) {
+    		b.setAvailablity();
+    		catalog.add(b);
+    	}
+    	
+    	if(members.containsKey(member.getName())) {
+    		members.remove(member.getName());
+    	}
+    }
 
     /**
      * Prints out books available.

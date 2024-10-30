@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Member {
 	private String name;
 	private int memberID;
-	private ArrayList<Book> borrowedBooks = new ArrayList<Book>();
+	public ArrayList<Book> borrowedBooks = new ArrayList<Book>();
 
 	public Member(String name, int memberID) {
 		this.name = name;

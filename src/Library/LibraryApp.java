@@ -4,7 +4,7 @@ public class LibraryApp {
     public static void main(String[] args) {
         //Instantiate Creator
         Library lib = new Library();
-
+        LibrarianController libc = new LibrarianController();
         //Members
         System.out.println();
         System.out.println("---Creating members---");
@@ -13,9 +13,9 @@ public class LibraryApp {
         lib.createMember("Daunte");
         lib.createMember("Gursheen");
         //getting references to member objects
-        Member alex = lib.getMember("Alex");
-        Member daunte = lib.getMember("Daunte");
-        Member gursheen = lib.getMember("Gursheen");
+        Member alex = libc.getMember(lib,"Alex");
+        Member daunte = libc.getMember(lib,"Daunte");
+        Member gursheen = libc.getMember(lib,"Gursheen");
 
         System.out.println();
         System.out.println("---Printing all members---");
@@ -27,24 +27,24 @@ public class LibraryApp {
         lib.createBook("Moby Dick", "Herman Melville");
         lib.createBook("1984", "George Orwell");
         //getting references to book objects
-        Book dune = lib.getBook("Dune");
-        Book mobyDick = lib.getBook("Moby Dick");
-        Book nineteen = lib.getBook("1984");
+        Book dune = libc.getBook(lib,"Dune");
+        Book mobyDick = libc.getBook(lib,"Moby Dick");
+        Book nineteen = libc.getBook(lib,"1984");
         System.out.println();
         System.out.println("---Printing all books---");
         System.out.println();
-        lib.printCatalog();
+        libc.printCatalog(lib);
 
         //borrowing and returning
-        LibrarianController libc = new LibrarianController();
+     
         System.out.println();
         System.out.println("---Borrowing and returning books---");
         System.out.println();
         libc.borrowBook(alex, dune);
-        lib.printCatalog();
+        libc.printCatalog(lib);
         System.out.println();
         libc.returnBook(alex, dune);
-        lib.printCatalog();
+        libc.printCatalog(lib);
 
         //Test - two people try to borrow the same book
         System.out.println();
@@ -57,6 +57,10 @@ public class LibraryApp {
         System.out.println();
         System.out.println("---Printing all available books---");
         System.out.println();
-        lib.getAvailableBooks();
+        libc.getAvailableBooks(lib);
+        
+        libc.removeMember(lib,daunte);
+        libc.getAvailableBooks(lib);
+
     }
 }
