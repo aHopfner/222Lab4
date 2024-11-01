@@ -4,8 +4,12 @@ package Library;
 public class LibrarianController {
 	// Handles user requests like borrowing and returning books.
 	// Delegates tasks to the appropriate objects.
-
+	private Library lib;
 	// TODO: implement functionality of LibrarianController class
+	public LibrarianController(Library lib){
+		this.lib = lib;
+	}
+
 	public void borrowBook(Member m, Book b){
 		if(b.isAvailable()){
 			b.setAvailablity();
@@ -26,28 +30,28 @@ public class LibrarianController {
 		}
 	}
 
-	public void removeMember(Library lib, Member member) {
+	public void removeMember(Member member) {
 		lib.removeMember(member);
 	}
-	public void getAvailableBooks(Library lib) {
+	public void getAvailableBooks() {
 		lib.getAvailableBooks();
 	}
-	public void findBook(Library lib, String s) {
+	public void findBook(String s) {
 		lib.findBook(s);
 	}
-	public Member getMember(Library lib, String s) {
+	public Member getMember(String s) {
 		return lib.getMember(s);
 	}
-	public void printMembers(Library lib) {
+	public void printMembers() {
 		lib.printMembers();
 	}
-	public void printCatalog(Library lib) {
+	public void printCatalog() {
 		lib.printCatalog();
 	}
-	public Book getBook(Library lib, String s) {
+	public Book getBook(String s) {
 		return lib.getBook(s);
 	}
-	public void removeBook(Library lib, Book b) {
+	public void removeBook(Book b) {
 		lib.removeBook(b);
 	}
 }
